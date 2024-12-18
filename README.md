@@ -16,9 +16,13 @@ cd ..
 
 After libnmea is installed, this is a header-only library. Just make sure you link against libnmea when building downstream projects.
 
+Note that `gps_buffer.h` reads the path of the device from the environment variable `UBLOX_PATH`, but defaults in to `/dev/ttyS1`. It also hardcodes the baud rate as 115200.
+
 To use the code, for example:
 
 ```
+#include <simple_gps/gps_buffer.h>
+
 static double gnss_R_ref[9];
 static double gnss_p_ref[3];
 
